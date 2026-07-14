@@ -1,0 +1,667 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Logaritma - Proposal & Demo Website</title>
+    <style>
+        /* =================================================================
+           BASE RESETS & VARIABLES
+           ================================================================= */
+        :root {
+            --navy-dark: #0a192f;
+            --navy-blue: #112240;
+            --navy-light: #233554;
+            --orange-red: #ff4757;
+            --orange-hover: #ff6b81;
+            --emerald-green: #10b981;
+            --emerald-hover: #059669;
+            --clean-white: #ffffff;
+            --off-white: #f8fafc;
+            --gray-border: #e2e8f0;
+            --gray-text: #64748b;
+            --text-dark: #1e293b;
+        }
+
+        * {
+            box-sizing: border-box;
+            margin: 0;
+            padding: 0;
+        }
+
+        body {
+            font-family: 'Segoe UI', Roboto, Helvetica, Arial, sans-serif;
+            line-height: 1.6;
+            background-color: var(--navy-dark);
+            color: var(--clean-white);
+            overflow-x: hidden;
+        }
+
+        /* =================================================================
+           PAGE TRANSITIONS LOGIC
+           ================================================================= */
+        .page {
+            display: none;
+            opacity: 0;
+            transition: opacity 0.6s cubic-bezier(0.16, 1, 0.3, 1);
+        }
+        .page.active {
+            display: block;
+            opacity: 1;
+        }
+
+        /* =================================================================
+           HALAMAN 1: LANDING PAGE PROPOSAL
+           ================================================================= */
+        #page1 {
+            background-color: var(--navy-dark);
+            min-height: 100vh;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            padding: 60px 20px;
+            background-image: radial-gradient(circle at top center, rgba(255, 71, 87, 0.15), transparent 60%);
+        }
+
+        .p1-container {
+            max-width: 900px;
+            text-align: center;
+        }
+
+        .urgency-badge {
+            background: rgba(255, 71, 87, 0.2);
+            color: var(--orange-red);
+            padding: 10px 25px;
+            border-radius: 50px;
+            font-weight: 800;
+            font-size: 1rem;
+            display: inline-block;
+            margin-bottom: 30px;
+            border: 1px solid rgba(255, 71, 87, 0.4);
+            text-transform: uppercase;
+            letter-spacing: 2px;
+            animation: blink 2s infinite;
+        }
+        @keyframes blink {
+            0%, 100% { opacity: 1; }
+            50% { opacity: 0.6; }
+        }
+
+        .p1-headline {
+            font-size: 3.5rem;
+            line-height: 1.2;
+            font-weight: 900;
+            margin-bottom: 30px;
+            text-shadow: 0 5px 15px rgba(0,0,0,0.5);
+            color: var(--clean-white);
+        }
+        .p1-headline span {
+            color: var(--orange-red);
+            position: relative;
+            display: inline-block;
+        }
+        .p1-headline span::after {
+            content: '';
+            position: absolute;
+            bottom: 0;
+            left: 0;
+            width: 100%;
+            height: 6px;
+            background-color: var(--orange-red);
+            border-radius: 3px;
+        }
+
+        .p1-subheadline {
+            font-size: 1.3rem;
+            color: #cbd5e1;
+            margin-bottom: 40px;
+            font-weight: 400;
+            line-height: 1.7;
+        }
+
+        .p1-body {
+            background: rgba(17, 34, 64, 0.7);
+            padding: 40px;
+            border-radius: 16px;
+            border-left: 6px solid var(--orange-red);
+            margin-bottom: 60px;
+            text-align: left;
+            box-shadow: 0 15px 35px rgba(0,0,0,0.4);
+        }
+        .p1-body p {
+            font-size: 1.15rem;
+            margin-bottom: 20px;
+            color: #94a3b8;
+        }
+        .p1-body p:last-child { margin-bottom: 0; }
+        .p1-body strong { color: var(--clean-white); }
+
+        .btn-to-demo {
+            background: linear-gradient(135deg, var(--orange-red), #ff6b81);
+            color: var(--clean-white);
+            font-size: 1.4rem;
+            font-weight: 800;
+            padding: 25px 50px;
+            border: none;
+            border-radius: 50px;
+            cursor: pointer;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+            box-shadow: 0 10px 25px rgba(255, 71, 87, 0.4), 0 0 0 0 rgba(255, 71, 87, 0.7);
+            animation: pulseRed 2s infinite;
+            transition: all 0.3s;
+        }
+        .btn-to-demo:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 15px 35px rgba(255, 71, 87, 0.6);
+        }
+        @keyframes pulseRed {
+            0% { box-shadow: 0 0 0 0 rgba(255, 71, 87, 0.7); }
+            70% { box-shadow: 0 0 0 25px rgba(255, 71, 87, 0); }
+            100% { box-shadow: 0 0 0 0 rgba(255, 71, 87, 0); }
+        }
+
+        /* =================================================================
+           HALAMAN 2: DEMO LIVE HOMEPAGE LOGARITMA
+           ================================================================= */
+        #page2 {
+            background-color: var(--off-white);
+            color: var(--text-dark);
+            min-height: 100vh;
+        }
+
+        /* Header Navigation */
+        .p2-header {
+            background-color: var(--clean-white);
+            padding: 20px 5%;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            box-shadow: 0 4px 15px rgba(0,0,0,0.05);
+            position: sticky;
+            top: 0;
+            z-index: 1000;
+        }
+        .p2-logo {
+            font-size: 1.8rem;
+            font-weight: 900;
+            color: var(--navy-dark);
+            display: flex;
+            align-items: center;
+            gap: 10px;
+        }
+        .p2-logo svg {
+            width: 32px;
+            height: 32px;
+            fill: var(--emerald-green);
+        }
+        
+        .p2-nav {
+            display: flex;
+            gap: 30px;
+        }
+        .p2-nav a {
+            text-decoration: none;
+            color: var(--gray-text);
+            font-weight: 600;
+            font-size: 1.05rem;
+            transition: color 0.3s;
+        }
+        .p2-nav a:hover, .p2-nav a.active {
+            color: var(--emerald-green);
+        }
+        
+        .hamburger {
+            display: none;
+            background: none;
+            border: none;
+            cursor: pointer;
+            color: var(--navy-dark);
+        }
+        .hamburger svg { width: 30px; height: 30px; fill: currentColor; }
+
+        /* Mobile Nav */
+        .mobile-menu {
+            display: none;
+            flex-direction: column;
+            background-color: var(--clean-white);
+            position: absolute;
+            top: 100%;
+            left: 0;
+            width: 100%;
+            box-shadow: 0 10px 15px rgba(0,0,0,0.05);
+            padding: 20px;
+        }
+        .mobile-menu.open {
+            display: flex;
+        }
+        .mobile-menu a {
+            text-decoration: none;
+            color: var(--text-dark);
+            font-weight: 600;
+            padding: 15px 0;
+            border-bottom: 1px solid var(--gray-border);
+        }
+
+        /* Hero Section */
+        .p2-hero {
+            background-color: var(--navy-dark);
+            color: var(--clean-white);
+            padding: 100px 5% 120px;
+            text-align: center;
+            background-image: url('data:image/svg+xml;utf8,<svg xmlns="http://www.w3.org/2000/svg" width="100" height="100" opacity="0.05"><path d="M0 0h100v100H0z" fill="none"/><circle cx="50" cy="50" r="40" stroke="white" stroke-width="2" fill="none"/></svg>');
+            background-size: 150px;
+        }
+        .p2-hero h1 {
+            font-size: 3rem;
+            font-weight: 800;
+            margin-bottom: 25px;
+            line-height: 1.2;
+        }
+        .p2-hero p.hero-desc {
+            font-size: 1.2rem;
+            color: #94a3b8;
+            max-width: 800px;
+            margin: 0 auto 50px;
+        }
+
+        /* CTA Button Page 2 */
+        .btn-cta-domain {
+            background-color: var(--emerald-green);
+            color: var(--clean-white);
+            font-size: 1.2rem;
+            font-weight: 700;
+            padding: 18px 35px;
+            border: none;
+            border-radius: 8px;
+            cursor: pointer;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+            box-shadow: 0 10px 20px rgba(16, 185, 129, 0.3);
+            transition: all 0.3s;
+            display: inline-block;
+            text-decoration: none;
+            text-align: center;
+        }
+        .btn-cta-domain:hover {
+            background-color: var(--emerald-hover);
+            transform: translateY(-3px);
+            box-shadow: 0 15px 25px rgba(16, 185, 129, 0.4);
+        }
+
+        /* Diagram Visual */
+        .diagram-wrapper {
+            max-width: 1000px;
+            margin: -60px auto 80px;
+            background: var(--clean-white);
+            padding: 50px 30px;
+            border-radius: 16px;
+            box-shadow: 0 20px 40px rgba(0,0,0,0.1);
+            position: relative;
+            z-index: 10;
+        }
+        .diagram-title {
+            text-align: center;
+            color: var(--navy-dark);
+            margin-bottom: 40px;
+            font-size: 1.5rem;
+            font-weight: 800;
+        }
+        
+        .flex-diagram {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            gap: 30px;
+        }
+        .sub-system-row {
+            display: flex;
+            gap: 20px;
+            width: 100%;
+            justify-content: center;
+        }
+        .sub-box {
+            flex: 1;
+            background: #f8fafc;
+            border: 2px solid var(--gray-border);
+            padding: 25px 20px;
+            border-radius: 12px;
+            text-align: center;
+            color: var(--navy-dark);
+            font-weight: 700;
+            font-size: 1.1rem;
+            position: relative;
+        }
+        .sub-box::after {
+            content: '';
+            position: absolute;
+            bottom: -30px;
+            left: 50%;
+            transform: translateX(-50%);
+            width: 2px;
+            height: 30px;
+            background-color: var(--emerald-green);
+        }
+        
+        .connector-bar {
+            width: calc(66% + 20px);
+            height: 2px;
+            background-color: var(--emerald-green);
+            position: relative;
+        }
+        .connector-bar::after {
+            content: '';
+            position: absolute;
+            bottom: -30px;
+            left: 50%;
+            transform: translateX(-50%);
+            width: 2px;
+            height: 30px;
+            background-color: var(--emerald-green);
+        }
+
+        .main-sys-box {
+            background: var(--emerald-green);
+            color: var(--clean-white);
+            padding: 20px 50px;
+            border-radius: 50px;
+            font-size: 1.3rem;
+            font-weight: 800;
+            box-shadow: 0 10px 20px rgba(16, 185, 129, 0.2);
+            position: relative;
+            z-index: 2;
+        }
+        .main-sys-box::before {
+            content: '';
+            position: absolute;
+            top: -10px;
+            left: 50%;
+            transform: translateX(-50%);
+            border-width: 10px 10px 0;
+            border-style: solid;
+            border-color: var(--emerald-green) transparent transparent transparent;
+        }
+
+        /* Konten Utama */
+        .p2-content {
+            padding: 0 5% 100px;
+            max-width: 1100px;
+            margin: 0 auto;
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 50px;
+            align-items: center;
+        }
+        .content-text h2 {
+            font-size: 2.2rem;
+            color: var(--navy-dark);
+            margin-bottom: 25px;
+            font-weight: 800;
+        }
+        .content-text p {
+            font-size: 1.1rem;
+            color: var(--gray-text);
+            margin-bottom: 20px;
+        }
+        .content-image {
+            background: #e2e8f0;
+            border-radius: 16px;
+            height: 350px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: #94a3b8;
+            font-size: 1.2rem;
+            font-weight: 600;
+            box-shadow: inset 0 0 20px rgba(0,0,0,0.05);
+        }
+        .content-image svg { width: 80px; height: 80px; fill: #cbd5e1; margin-bottom: 15px;}
+
+        /* Footer */
+        .p2-footer {
+            background-color: var(--navy-dark);
+            color: #94a3b8;
+            padding: 60px 5% 40px;
+            text-align: center;
+        }
+        .p2-footer .cta-wrapper { margin-bottom: 50px; }
+        .p2-footer p { font-size: 0.95rem; }
+        .p2-footer p a { color: var(--emerald-green); text-decoration: none; }
+        .p2-footer a.btn-cta-domain { color: var(--clean-white); }
+
+        /* Floating WhatsApp Button */
+        .fab-wa {
+            position: fixed;
+            bottom: 30px;
+            right: 30px;
+            background-color: #25D366;
+            width: 60px;
+            height: 60px;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            box-shadow: 0 10px 25px rgba(37, 211, 102, 0.4);
+            cursor: pointer;
+            transition: all 0.3s;
+            z-index: 2000;
+            animation: floatWA 3s ease-in-out infinite;
+        }
+        .fab-wa svg { width: 35px; height: 35px; fill: var(--clean-white); }
+        .fab-wa:hover {
+            transform: scale(1.1);
+            background-color: #128C7E;
+        }
+        @keyframes floatWA {
+            0% { transform: translateY(0); }
+            50% { transform: translateY(-10px); }
+            100% { transform: translateY(0); }
+        }
+
+        /* =================================================================
+           RESPONSIVE DESIGN (MEDIA QUERIES)
+           ================================================================= */
+        @media (max-width: 992px) {
+            .p1-headline { font-size: 2.8rem; }
+            .p2-hero h1 { font-size: 2.4rem; }
+            .p2-content { grid-template-columns: 1fr; gap: 40px; }
+            .content-image { height: 250px; }
+        }
+
+        @media (max-width: 768px) {
+            .p1-headline { font-size: 2.2rem; }
+            .p1-subheadline { font-size: 1.1rem; }
+            .p1-body { padding: 25px; }
+            .btn-to-demo { font-size: 1.1rem; padding: 20px 30px; width: 100%; }
+            
+            .p2-nav { display: none; }
+            .hamburger { display: block; }
+            
+            .p2-hero { padding: 80px 5% 100px; }
+            .sub-system-row { flex-direction: column; gap: 15px; }
+            .sub-box::after { display: none; }
+            .connector-bar { display: none; }
+            
+            /* Custom connector for mobile stacking */
+            .sub-box {
+                margin-bottom: 20px;
+            }
+            .sub-box:not(:last-child)::before {
+                content: '';
+                position: absolute;
+                bottom: -22px;
+                left: 50%;
+                transform: translateX(-50%);
+                width: 2px;
+                height: 20px;
+                background-color: var(--emerald-green);
+            }
+            
+            .flex-diagram { gap: 10px; }
+            .main-sys-box { margin-top: 20px; font-size: 1.1rem; text-align: center; }
+            
+            .fab-wa { bottom: 20px; right: 20px; width: 50px; height: 50px; }
+            .fab-wa svg { width: 28px; height: 28px; }
+            
+            .btn-cta-domain { width: 100%; }
+        }
+    </style>
+</head>
+<body>
+
+    <!-- =================================================================
+         HALAMAN 1: LANDING PAGE PROPOSAL
+         ================================================================= -->
+    <div id="page1" class="page active">
+        <div class="p1-container">
+            <div class="urgency-badge">Waktu Kita Hampir Habis!</div>
+            
+            <h1 class="p1-headline">Jangan Sampai Identitas Digital <span>logaritma.id</span> Jatuh ke Tangan Kompetitor Kita!</h1>
+            
+            <p class="p1-subheadline">Ini bukan sekadar nama domain biasa. Ini adalah <strong>legacy akademis kita</strong>. Bayangkan jika besok pagi ada kampus atau instansi lain yang meresmikan nama ini lebih dulu. Kita akan kehilangan hak eksklusif selamanya.</p>
+            
+            <div class="p1-body">
+                <p>Kita sudah berdarah-darah menyusun metode logaritma ini. Menghabiskan waktu berbulan-bulan untuk riset, validasi, dan pembuktian empiris.</p>
+                <p>Karya sehebat ini <strong>tidak pantas hanya berakhir di rak buku perpustakaan yang berdebu</strong>. Ini adalah momen krusial untuk meroketkan karya kita ke panggung nasional dan global.</p>
+                <p>Kita butuh sebuah "rumah digital" yang berwibawa, elegan, dan menonjolkan bobot ilmiah karya kita secara profesional di mata dunia.</p>
+            </div>
+
+            <button class="btn-to-demo" onclick="goToPage2()">
+                [ Lihat Demo Website Logaritma ]
+            </button>
+        </div>
+    </div>
+
+
+    <!-- =================================================================
+         HALAMAN 2: DEMO LIVE HOMEPAGE LOGARITMA
+         ================================================================= -->
+    <div id="page2" class="page">
+        
+        <!-- Header -->
+        <header class="p2-header">
+            <div class="p2-logo">
+                <svg viewBox="0 0 24 24"><path d="M12 2L2 22h20L12 2zm0 3.8l7.2 14.2H4.8L12 5.8z"/></svg>
+                Logaritma
+            </div>
+            
+            <nav class="p2-nav">
+                <a href="#" class="active">Home</a>
+                <a href="#">Tentang Buku</a>
+                <a href="#">Metode</a>
+                <a href="#">Kontak</a>
+            </nav>
+            
+            <button class="hamburger" onclick="toggleMenu()">
+                <svg viewBox="0 0 24 24"><path d="M3 18h18v-2H3v2zm0-5h18v-2H3v2zm0-7v2h18V6H3z"/></svg>
+            </button>
+        </header>
+        
+        <!-- Mobile Menu Container -->
+        <div class="mobile-menu" id="mobileMenu">
+            <a href="#">Home</a>
+            <a href="#">Tentang Buku</a>
+            <a href="#">Metode</a>
+            <a href="#">Kontak</a>
+        </div>
+
+        <!-- Hero Section -->
+        <section class="p2-hero">
+            <h1>Metode Logaritma Terapan:<br>Membangun Masa Depan Presisi</h1>
+            <p class="hero-desc">Sebuah pendekatan komprehensif yang dirancang khusus untuk memecahkan kompleksitas analisis data modern dengan akurasi dan efisiensi tingkat tinggi.</p>
+            
+            <a href="https://wa.me/6285179660408?text=proses%20mas%20Baim" target="_blank" class="btn-cta-domain">
+                [ Amankan Domain logaritma.id Sekarang! ]
+            </a>
+        </section>
+
+        <!-- Visual Diagram -->
+        <div class="diagram-wrapper">
+            <div class="diagram-title">Arsitektur Ekosistem Monograf</div>
+            <div class="flex-diagram">
+                
+                <div class="sub-system-row">
+                    <div class="sub-box">Pengumpulan Data<br><small>(Akuisisi Metrik)</small></div>
+                    <div class="sub-box">Pemrosesan Analitik<br><small>(Kalkulasi Sentimen)</small></div>
+                    <div class="sub-box">Penyusunan Laporan<br><small>(Kompilasi Akhir)</small></div>
+                </div>
+
+                <div class="connector-bar"></div>
+
+                <div class="main-sys-box">
+                    Sistem Logaritma Terintegrasi
+                </div>
+
+            </div>
+        </div>
+
+        <!-- Konten Utama -->
+        <section class="p2-content">
+            <div class="content-text">
+                <h2>Bukan Sekadar Teori, Ini Adalah Solusi Nyata.</h2>
+                <p>Website ini akan menjadi portal utama bagi akademisi, mahasiswa, maupun praktisi industri untuk memahami metode monograf yang kita bangun.</p>
+                <p>Setiap sub-sistem dijelaskan secara detail dan interaktif, memudahkan proses adaptasi ilmu, serta secara langsung meningkatkan probabilitas sitasi lintas institusi secara eksponensial.</p>
+                <p>Desain *clean* dan berwibawa ini memastikan kredibilitas karya ilmiah kita tetap terjaga di dunia maya.</p>
+            </div>
+            
+            <div class="content-image">
+                <div style="text-align: center;">
+                    <svg viewBox="0 0 24 24"><path d="M19 3H5c-1.1 0-2 .9-2 2v14c0 1.1.9 2 2 2h14c1.1 0 2-.9 2-2V5c0-1.1-.9-2-2-2zm-5 14H7v-2h7v2zm3-4H7v-2h10v2zm0-4H7V7h10v2z"/></svg>
+                    <br>Ilustrasi Metode (Mockup)
+                </div>
+            </div>
+        </section>
+
+        <!-- Footer -->
+        <footer class="p2-footer">
+            <div class="cta-wrapper">
+                <a href="https://wa.me/6285179660408?text=proses%20mas%20Baim" target="_blank" class="btn-cta-domain">
+                    [ Amankan Domain logaritma.id Sekarang! ]
+                </a>
+            </div>
+            <p>&copy; 2026 Tim Peneliti Logaritma. Hak Cipta Dilindungi Undang-Undang.</p>
+            <p>Didukung oleh <a href="#">Institusi Akademis Nasional</a></p>
+        </footer>
+
+        <!-- Floating WhatsApp Button -->
+        <a href="https://wa.me/6285179660408?text=proses%20mas%20Baim" target="_blank" class="fab-wa">
+            <svg viewBox="0 0 24 24"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51a12.8 12.8 0 0 0-.57-.01c-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 0 1-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 0 1-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 0 1 2.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0 0 12.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 0 0 5.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 0 0-3.48-8.413Z"/></svg>
+        </a>
+    </div>
+
+    <!-- =================================================================
+         LOGIKA JAVASCRIPT
+         ================================================================= -->
+    <script>
+        // Transisi Halus dari Halaman 1 ke Halaman 2
+        function goToPage2() {
+            const page1 = document.getElementById('page1');
+            const page2 = document.getElementById('page2');
+            
+            // Mulai fade out
+            page1.style.opacity = '0';
+            
+            // Tunggu transisi selesai, lalu swap display
+            setTimeout(() => {
+                page1.classList.remove('active');
+                page1.style.display = 'none';
+                
+                page2.style.display = 'block';
+                // Trigger reflow
+                void page2.offsetWidth;
+                
+                page2.classList.add('active');
+                page2.style.opacity = '1';
+                window.scrollTo(0, 0);
+            }, 600); // Waktu sesuaikan dengan CSS transition
+        }
+
+        // Toggle Mobile Menu
+        function toggleMenu() {
+            const menu = document.getElementById('mobileMenu');
+            menu.classList.toggle('open');
+        }
+    </script>
+</body>
+</html>
