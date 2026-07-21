@@ -1,0 +1,354 @@
+<!DOCTYPE html>
+<html lang="id" class="scroll-smooth overflow-x-hidden">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Logaritma.id untuk Praktisi & Eksekutif — Hentikan Rutinitas "Asal Jalan"</title>
+    <meta name="description" content="Sistem pengukuran kinerja pragmatis untuk organisasi modern. Capai efisiensi anggaran, eliminasi silo mentality, dan fokus pada outcome nyata.">
+    <meta name="keywords" content="pengukuran kinerja, efisiensi anggaran, silo mentality, praktisi, eksekutif, rekayasa sistem">
+    
+    <!-- Open Graph / Social Media Meta Tags -->
+    <meta property="og:type" content="website">
+    <meta property="og:url" content="https://logaritma.id/praktisi/">
+    <meta property="og:title" content="Logaritma.id untuk Praktisi & Eksekutif">
+    <meta property="og:description" content="Kalkulator skor keterlacakan organisasi. Hentikan rutinitas program yang asal jalan dan asal serap anggaran.">
+    <meta property="og:image" content="https://logaritma.id/assets/images/og-praktisi.jpg">
+    
+    <!-- Favicon -->
+    <link rel="icon" type="image/svg+xml" href="../assets/images/favicon.svg">
+    <link rel="icon" type="image/png" href="../assets/images/favicon.png">
+    
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700;800&family=Space+Grotesk:wght@600;700&display=swap" rel="stylesheet">
+    
+    <link rel="stylesheet" href="../css/style.css">
+
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    fontFamily: {
+                        sans: ['"Plus Jakarta Sans"', 'sans-serif'],
+                        heading: ['"Space Grotesk"', 'sans-serif'],
+                    },
+                    colors: {
+                        brand: {
+                            navy: '#0b0f19',
+                            dark: '#111827',
+                            blue: '#2563eb',
+                            accent: '#38bdf8',
+                            glow: '#60a5fa'
+                        }
+                    },
+                    animation: {
+                        'pulse-slow': 'pulse 6s cubic-bezier(0.4, 0, 0.6, 1) infinite',
+                        'float': 'float 3s ease-in-out infinite',
+                        'fade-in-up': 'fadeInUp 0.8s cubic-bezier(0.16, 1, 0.3, 1) forwards',
+                    },
+                    keyframes: {
+                        float: {
+                            '0%, 100%': { transform: 'translateY(0px)' },
+                            '50%': { transform: 'translateY(-8px)' },
+                        },
+                        fadeInUp: {
+                            '0%': { opacity: '0', transform: 'translateY(20px)' },
+                            '100%': { opacity: '1', transform: 'translateY(0)' },
+                        }
+                    }
+                }
+            }
+        }
+    </script>
+</head>
+<body class="bg-slate-950 text-slate-100 font-sans antialiased selection:bg-blue-500 selection:text-white overflow-x-hidden w-full">
+
+    <div class="fixed top-0 left-1/2 -translate-x-1/2 w-full sm:w-[1000px] h-[400px] bg-gradient-to-tr from-blue-600/20 via-cyan-500/10 to-transparent blur-[120px] pointer-events-none z-0 animate-pulse-slow"></div>
+
+    <header class="sticky top-0 z-50 bg-slate-950/80 backdrop-blur-md border-b border-slate-800/80 w-full overflow-x-hidden">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 h-20 flex items-center justify-between">
+            <a href="../index.html" class="flex items-center gap-2 group">
+                <span class="font-heading text-2xl font-black tracking-tight text-white group-hover:text-blue-400 transition">
+                    LOGARITMA<span class="text-blue-500">.ID</span>
+                </span>
+            </a>
+
+            <nav class="hidden md:flex items-center gap-8 text-sm font-medium text-slate-300">
+                <a href="#solusi" class="hover:text-blue-400 transition-colors">Solusi</a>
+                <a href="#studi-kasus" class="hover:text-blue-400 transition-colors">Studi Kasus</a>
+            </nav>
+
+            <div class="hidden md:block">
+                <a href="#" class="open-modal-btn relative inline-flex items-center justify-center p-0.5 overflow-hidden text-sm font-bold text-white rounded-xl group bg-gradient-to-br from-blue-500 to-cyan-400 group-hover:from-blue-600 group-hover:to-cyan-500 shadow-lg shadow-blue-500/25 transition">
+                    <span class="relative px-5 py-2.5 transition-all ease-in duration-75 bg-slate-950 rounded-[10px] group-hover:bg-opacity-0">
+                        Jadwalkan Demo
+                    </span>
+                </a>
+            </div>
+
+            <button id="menu-btn" class="md:hidden text-slate-300 hover:text-white focus:outline-none">
+                <svg class="w-7 h-7" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16m-7 6h7"></path>
+                </svg>
+            </button>
+        </div>
+
+        <div id="mobile-menu" class="hidden md:hidden bg-slate-900 border-b border-slate-800 px-4 pt-2 pb-6 space-y-3">
+            <a href="#solusi" class="block py-2 text-slate-300 hover:text-blue-400">Solusi</a>
+            <a href="#studi-kasus" class="block py-2 text-slate-300 hover:text-blue-400">Studi Kasus</a>
+            <a href="#" class="open-modal-btn block text-center mt-4 bg-blue-600 text-white font-bold py-3 rounded-xl">Jadwalkan Demo</a>
+        </div>
+    </header>
+
+    <main class="relative z-10 w-full overflow-x-hidden">
+        <!-- Hero Section -->
+        <section class="pt-16 pb-20 lg:pt-28 lg:pb-32 overflow-hidden px-4">
+            <div class="max-w-4xl mx-auto text-center animate-fade-in-up">
+                <div class="inline-flex items-center gap-2 bg-blue-500/10 border border-blue-500/30 text-blue-300 text-xs sm:text-sm font-semibold px-4 py-2 rounded-full mb-6">
+                    SOLUSI PRAKTISI & EKSEKUTIF
+                </div>
+                <h1 class="text-3xl sm:text-4xl md:text-5xl lg:text-6xl font-extrabold tracking-tight leading-tight mb-8 font-heading text-balance">
+                    Hentikan Rutinitas Program yang <span class="text-transparent bg-clip-text bg-gradient-to-r from-red-400 to-orange-400">"Asal Jalan"</span> & <span class="text-transparent bg-clip-text bg-gradient-to-r from-red-400 to-orange-400">"Asal Serap Anggaran"</span>
+                </h1>
+                <p class="text-lg md:text-xl text-slate-300 mb-10 leading-relaxed">
+                    Sistem pengukuran kinerja pragmatis untuk mencapai efisiensi anggaran, eliminasi silo mentality, dan fokus pada outcome nyata yang berdampak pada organisasi Anda.
+                </p>
+                <button class="open-modal-btn w-full sm:w-auto px-6 py-4 bg-blue-600 hover:bg-blue-500 text-white rounded-xl font-bold text-base sm:text-lg shadow-lg shadow-blue-500/30 transition-all hover:-translate-y-1 text-wrap leading-snug">
+                    Cek Skor Keterlacakan Organisasi Anda
+                </button>
+            </div>
+        </section>
+
+        <!-- Pain Points Section -->
+        <section id="pain-points" class="py-16 bg-slate-900/50">
+            <div class="max-w-6xl mx-auto px-4">
+                <h2 class="text-3xl font-bold text-center mb-12 font-heading text-white">3 Penyakit Organisasi Modern</h2>
+                <div class="grid grid-cols-1 md:grid-cols-3 gap-8">
+                    <div class="glass-card p-8 rounded-2xl border-t-2 border-t-red-500">
+                        <div class="w-12 h-12 bg-red-500/20 rounded-lg flex items-center justify-center text-red-400 mb-6 text-2xl">🚧</div>
+                        <h3 class="text-xl font-bold text-white mb-3">Silo Mentality</h3>
+                        <p class="text-slate-400">Setiap departemen bekerja sendiri tanpa sinkronisasi tujuan akhir. Sasaran tumpang tindih dan komunikasi terputus.</p>
+                    </div>
+                    <div class="glass-card p-8 rounded-2xl border-t-2 border-t-orange-500">
+                        <div class="w-12 h-12 bg-orange-500/20 rounded-lg flex items-center justify-center text-orange-400 mb-6 text-2xl">⚙️</div>
+                        <h3 class="text-xl font-bold text-white mb-3">Jebakan Output</h3>
+                        <p class="text-slate-400">Fokus sempit pada penyelesaian kegiatan (output) dan penyerapan anggaran, namun gagal menghasilkan dampak nyata (outcome).</p>
+                    </div>
+                    <div class="glass-card p-8 rounded-2xl border-t-2 border-t-yellow-500">
+                        <div class="w-12 h-12 bg-yellow-500/20 rounded-lg flex items-center justify-center text-yellow-400 mb-6 text-2xl">📉</div>
+                        <h3 class="text-xl font-bold text-white mb-3">Strategi Mangkrak</h3>
+                        <p class="text-slate-400">Rencana strategis yang indah di atas kertas namun tidak dapat dieksekusi hingga level operasional terbawah.</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Solution Section -->
+        <section id="solusi" class="py-20 relative">
+            <div class="max-w-6xl mx-auto px-4 text-center">
+                <h2 class="text-3xl md:text-4xl font-bold mb-6 font-heading">Solusi: Logarithmic Performance Measurement System (LPMS)</h2>
+                <p class="text-lg text-slate-300 max-w-3xl mx-auto mb-12">Pendekatan komprehensif menggunakan Closed-Loop System untuk memastikan setiap rupiah dan jam kerja terhubung langsung dengan visi besar organisasi.</p>
+                <div class="glass-card p-10 rounded-3xl inline-block text-left w-full max-w-4xl border-blue-500/20">
+                    <ul class="space-y-6">
+                        <li class="flex items-start gap-4">
+                            <div class="w-8 h-8 rounded-full bg-blue-600 flex items-center justify-center font-bold text-white shrink-0">1</div>
+                            <div>
+                                <h4 class="text-xl font-bold text-white">Backward Mapping Strategy</h4>
+                                <p class="text-slate-400 mt-1">Merancang program dimulai dari outcome yang diharapkan mundur ke aktivitas teknis.</p>
+                            </div>
+                        </li>
+                        <li class="flex items-start gap-4">
+                            <div class="w-8 h-8 rounded-full bg-blue-600 flex items-center justify-center font-bold text-white shrink-0">2</div>
+                            <div>
+                                <h4 class="text-xl font-bold text-white">Closed-Loop System</h4>
+                                <p class="text-slate-400 mt-1">Sistem evaluasi berkelanjutan yang memastikan deviasi segera dikoreksi secara real-time.</p>
+                            </div>
+                        </li>
+                        <li class="flex items-start gap-4">
+                            <div class="w-8 h-8 rounded-full bg-blue-600 flex items-center justify-center font-bold text-white shrink-0">3</div>
+                            <div>
+                                <h4 class="text-xl font-bold text-white">Traceability Kinerja</h4>
+                                <p class="text-slate-400 mt-1">Keterlacakan penuh dari KPIs direksi hingga ke KPI staf pelaksana terbawah.</p>
+                            </div>
+                        </li>
+                    </ul>
+                </div>
+            </div>
+        </section>
+
+        <!-- Case Studies -->
+        <section id="studi-kasus" class="py-20 bg-slate-900/30">
+            <div class="max-w-6xl mx-auto px-4">
+                <h2 class="text-3xl font-bold text-center mb-12 font-heading">Studi Kasus Lintas Sektor</h2>
+                <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
+                    <!-- Pemda -->
+                    <div class="glass-card p-6 rounded-2xl">
+                        <div class="text-blue-400 text-sm font-bold mb-2">Pemerintah Daerah</div>
+                        <h3 class="text-lg font-bold text-white mb-4">Pengentasan Stunting</h3>
+                        <div class="space-y-5 text-sm mt-4">
+                            <div class="bg-slate-900/80 p-4 rounded-xl border border-red-500/30 relative mt-2">
+                                <div class="absolute -top-3 left-4 px-2 py-0.5 bg-red-500 text-white text-[10px] font-bold rounded shadow-sm">SEBELUM (PROBLEM)</div>
+                                <span class="text-slate-300 block mt-2">Anggaran habis untuk rapat koordinasi, angka stunting stagnan.</span>
+                            </div>
+                            <div class="bg-slate-900/80 p-4 rounded-xl border border-green-500/40 relative mt-4">
+                                <div class="absolute -top-3 left-4 px-2 py-0.5 bg-green-500 text-white text-[10px] font-bold rounded shadow-sm">SESUDAH (SOLUSI METODA LOGARITMA)</div>
+                                <span class="text-slate-100 font-medium block mt-2">Fokus intervensi nutrisi langsung target, stunting turun 12% dalam 1 tahun.</span>
+                            </div>
+                        </div>
+                    </div>
+                    <!-- BUMN / Perusahaan -->
+                    <div class="glass-card p-6 rounded-2xl">
+                        <div class="text-cyan-400 text-sm font-bold mb-2">BUMN & Korporasi</div>
+                        <h3 class="text-lg font-bold text-white mb-4">Efisiensi Operasional</h3>
+                        <div class="space-y-5 text-sm mt-4">
+                            <div class="bg-slate-900/80 p-4 rounded-xl border border-red-500/30 relative mt-2">
+                                <div class="absolute -top-3 left-4 px-2 py-0.5 bg-red-500 text-white text-[10px] font-bold rounded shadow-sm">SEBELUM (PROBLEM)</div>
+                                <span class="text-slate-300 block mt-2">Silo antar divisi IT & Bisnis, proyek digitalisasi mangkrak.</span>
+                            </div>
+                            <div class="bg-slate-900/80 p-4 rounded-xl border border-green-500/40 relative mt-4">
+                                <div class="absolute -top-3 left-4 px-2 py-0.5 bg-green-500 text-white text-[10px] font-bold rounded shadow-sm">SESUDAH (SOLUSI METODA LOGARITMA)</div>
+                                <span class="text-slate-100 font-medium block mt-2">Traceability KPI antar divisi, Opex turun 18%, proyek selesai on-time.</span>
+                            </div>
+                        </div>
+                    </div>
+                    <!-- RS / Yayasan -->
+                    <div class="glass-card p-6 rounded-2xl">
+                        <div class="text-blue-400 text-sm font-bold mb-2">Rumah Sakit & LSM</div>
+                        <h3 class="text-lg font-bold text-white mb-4">Layanan Pasien</h3>
+                        <div class="space-y-5 text-sm mt-4">
+                            <div class="bg-slate-900/80 p-4 rounded-xl border border-red-500/30 relative mt-2">
+                                <div class="absolute -top-3 left-4 px-2 py-0.5 bg-red-500 text-white text-[10px] font-bold rounded shadow-sm">SEBELUM (PROBLEM)</div>
+                                <span class="text-slate-300 block mt-2">Waktu tunggu lama, kepuasan pasien rendah meski alat baru.</span>
+                            </div>
+                            <div class="bg-slate-900/80 p-4 rounded-xl border border-green-500/40 relative mt-4">
+                                <div class="absolute -top-3 left-4 px-2 py-0.5 bg-green-500 text-white text-[10px] font-bold rounded shadow-sm">SESUDAH (SOLUSI METODA LOGARITMA)</div>
+                                <span class="text-slate-100 font-medium block mt-2">Redesain alur berbasis outcome, waktu tunggu dipangkas 40%.</span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Kalkulator Skor -->
+        <section id="kalkulator" class="py-20 relative">
+            <div class="max-w-4xl mx-auto px-4">
+                <div class="glass-card p-8 md:p-12 rounded-3xl relative overflow-hidden">
+                    <div class="absolute top-0 right-0 w-64 h-64 bg-blue-600/10 rounded-full blur-3xl"></div>
+                    <div class="relative z-10">
+                        <h2 class="text-3xl font-bold mb-4 font-heading text-white">Kalkulator Cepat Skor Keterlacakan</h2>
+                        <p class="text-slate-400 mb-8">Jawab 3 pertanyaan ini untuk mengetahui sejauh mana program Anda terhubung dengan visi utama organisasi.</p>
+                        
+                        <div class="space-y-6 mb-8" id="kalkulator-form">
+                            <!-- Q1 -->
+                            <div class="bg-slate-900/50 p-6 rounded-xl border border-slate-700">
+                                <p class="text-white font-medium mb-4">1. Apakah setiap program atau kegiatan memiliki indikator outcome (bukan sekadar output) yang jelas?</p>
+                                <div class="space-y-2">
+                                    <label class="flex items-center gap-3 cursor-pointer p-3 rounded-lg border border-slate-700 hover:bg-slate-800 transition">
+                                        <input type="radio" name="q1" value="0" class="text-blue-500 bg-slate-800 border-slate-600 focus:ring-blue-500 focus:ring-offset-slate-900">
+                                        <span class="text-slate-300">Belum, sebagian besar hanya mengukur output.</span>
+                                    </label>
+                                    <label class="flex items-center gap-3 cursor-pointer p-3 rounded-lg border border-slate-700 hover:bg-slate-800 transition">
+                                        <input type="radio" name="q1" value="5" class="text-blue-500 bg-slate-800 border-slate-600 focus:ring-blue-500 focus:ring-offset-slate-900">
+                                        <span class="text-slate-300">Sebagian sudah, namun belum konsisten di semua divisi.</span>
+                                    </label>
+                                    <label class="flex items-center gap-3 cursor-pointer p-3 rounded-lg border border-slate-700 hover:bg-slate-800 transition">
+                                        <input type="radio" name="q1" value="10" class="text-blue-500 bg-slate-800 border-slate-600 focus:ring-blue-500 focus:ring-offset-slate-900">
+                                        <span class="text-slate-300">Ya, 100% program memiliki indikator outcome terukur.</span>
+                                    </label>
+                                </div>
+                            </div>
+                            
+                            <!-- Q2 -->
+                            <div class="bg-slate-900/50 p-6 rounded-xl border border-slate-700">
+                                <p class="text-white font-medium mb-4">2. Jika ditelusuri (traceability), apakah KPI staf pelaksana selaras dan terhubung matematis ke KPI direksi?</p>
+                                <div class="space-y-2">
+                                    <label class="flex items-center gap-3 cursor-pointer p-3 rounded-lg border border-slate-700 hover:bg-slate-800 transition">
+                                        <input type="radio" name="q2" value="0" class="text-blue-500 bg-slate-800 border-slate-600 focus:ring-blue-500 focus:ring-offset-slate-900">
+                                        <span class="text-slate-300">Sangat sulit, masing-masing jalan sendiri (silo).</span>
+                                    </label>
+                                    <label class="flex items-center gap-3 cursor-pointer p-3 rounded-lg border border-slate-700 hover:bg-slate-800 transition">
+                                        <input type="radio" name="q2" value="5" class="text-blue-500 bg-slate-800 border-slate-600 focus:ring-blue-500 focus:ring-offset-slate-900">
+                                        <span class="text-slate-300">Ada hubungan, tapi lebih berupa klaim naratif dibanding logis/matematis.</span>
+                                    </label>
+                                    <label class="flex items-center gap-3 cursor-pointer p-3 rounded-lg border border-slate-700 hover:bg-slate-800 transition">
+                                        <input type="radio" name="q2" value="10" class="text-blue-500 bg-slate-800 border-slate-600 focus:ring-blue-500 focus:ring-offset-slate-900">
+                                        <span class="text-slate-300">Sangat selaras dan dapat ditelusuri dari atas ke bawah.</span>
+                                    </label>
+                                </div>
+                            </div>
+
+                            <!-- Q3 -->
+                            <div class="bg-slate-900/50 p-6 rounded-xl border border-slate-700">
+                                <p class="text-white font-medium mb-4">3. Apakah organisasi memiliki sistem closed-loop untuk evaluasi real-time saat program berjalan?</p>
+                                <div class="space-y-2">
+                                    <label class="flex items-center gap-3 cursor-pointer p-3 rounded-lg border border-slate-700 hover:bg-slate-800 transition">
+                                        <input type="radio" name="q3" value="0" class="text-blue-500 bg-slate-800 border-slate-600 focus:ring-blue-500 focus:ring-offset-slate-900">
+                                        <span class="text-slate-300">Tidak, evaluasi hanya di akhir tahun (sekadar laporan).</span>
+                                    </label>
+                                    <label class="flex items-center gap-3 cursor-pointer p-3 rounded-lg border border-slate-700 hover:bg-slate-800 transition">
+                                        <input type="radio" name="q3" value="5" class="text-blue-500 bg-slate-800 border-slate-600 focus:ring-blue-500 focus:ring-offset-slate-900">
+                                        <span class="text-slate-300">Ada evaluasi periodik, namun sering terlambat untuk perbaikan.</span>
+                                    </label>
+                                    <label class="flex items-center gap-3 cursor-pointer p-3 rounded-lg border border-slate-700 hover:bg-slate-800 transition">
+                                        <input type="radio" name="q3" value="10" class="text-blue-500 bg-slate-800 border-slate-600 focus:ring-blue-500 focus:ring-offset-slate-900">
+                                        <span class="text-slate-300">Ya, ada koreksi otomatis jika deviasi kinerja terdeteksi.</span>
+                                    </label>
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="flex flex-col items-center">
+                            <button id="btn-hitung-skor" class="px-8 py-4 bg-gradient-to-r from-blue-600 to-cyan-500 hover:from-blue-500 hover:to-cyan-400 text-white rounded-xl font-bold text-lg shadow-lg shadow-blue-500/30 transition-all hover:-translate-y-1 w-full md:w-auto">
+                                Hitung Skor Organisasi Saya
+                            </button>
+                            
+                            <!-- Result Container -->
+                            <div id="skor-result" class="hidden mt-8 text-center w-full bg-slate-950/50 p-6 rounded-2xl border border-blue-500/30">
+                                <div class="text-sm font-bold text-blue-400 mb-2">SKOR KETERLACAKAN ANDA</div>
+                                <div class="text-5xl font-black text-white font-heading mb-4" id="skor-angka">0 / 30</div>
+                                <p class="text-slate-300 mb-6" id="skor-pesan">Pesan akan tampil di sini.</p>
+                                <button class="open-modal-btn px-6 py-3 bg-blue-600 hover:bg-blue-500 text-white rounded-xl font-bold text-sm transition">Konsultasikan Solusi via Demo</button>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+    </main>
+
+    <!-- Modal Component -->
+    <div id="cta-modal" class="fixed inset-0 z-[100] hidden items-center justify-center modal-overlay px-4">
+        <div class="bg-slate-900 border border-slate-700 rounded-2xl w-full max-w-md p-8 relative shadow-2xl">
+            <button id="close-modal-btn" class="absolute top-4 right-4 text-slate-400 hover:text-white">
+                <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M6 18L18 6M6 6l12 12"></path></svg>
+            </button>
+            <h3 class="text-2xl font-bold font-heading mb-2 text-white">Mulai Transformasi</h3>
+            <p class="text-slate-400 text-sm mb-6">Tinggalkan rutinitas lama. Jadwalkan audit sistem atau demo LPMS bersama tim ahli kami.</p>
+            <form class="space-y-4">
+                <div>
+                    <label class="block text-sm font-medium text-slate-300 mb-1">Nama Lengkap</label>
+                    <input type="text" class="w-full bg-slate-800 border border-slate-700 rounded-lg px-4 py-2.5 text-white text-base focus:ring-2 focus:ring-blue-500 outline-none" placeholder="Budi Santoso">
+                </div>
+                <div>
+                    <label class="block text-sm font-medium text-slate-300 mb-1">Instansi / Perusahaan</label>
+                    <input type="text" class="w-full bg-slate-800 border border-slate-700 rounded-lg px-4 py-2.5 text-white text-base focus:ring-2 focus:ring-blue-500 outline-none" placeholder="PT Contoh Maju">
+                </div>
+                <div>
+                    <label class="block text-sm font-medium text-slate-300 mb-1">Email Profesional</label>
+                    <input type="email" class="w-full bg-slate-800 border border-slate-700 rounded-lg px-4 py-2.5 text-white text-base focus:ring-2 focus:ring-blue-500 outline-none" placeholder="budi@perusahaan.com">
+                </div>
+                <button type="button" class="w-full bg-gradient-to-r from-blue-600 to-cyan-500 hover:from-blue-500 hover:to-cyan-400 text-white font-bold py-3 rounded-xl mt-4 transition">Kirim Permintaan</button>
+            </form>
+        </div>
+    </div>
+
+    <footer class="bg-slate-950 text-slate-500 py-8 border-t border-slate-900 text-center text-sm font-medium relative z-10">
+        <p>&copy; 2026 Metoda Logaritma. All rights reserved.</p>
+    </footer>
+
+    <script src="../js/main.js"></script>
+</body>
+</html>
